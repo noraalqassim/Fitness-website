@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="utf-8">
+    <title> Health</title>
+<style media="screen">
+@import url("http://www.fontstatic.com/f=sky-bold,sky");
+@media print {
+  body{
+    background-color: white;
+  }
+}
+
+html,body {
+  background-color: 	#d5dddd;
+    font-family: 'sky';
+  line-height: 1.6rem;  
+}
+
+.pre1 {
+  padding: 3rem 0;
+  font-size: 50px;
+  font-family: 'sky';
+}
+.py-1{
+  padding: 2rem 0;
+  font-size: 40px;
+
+}
+
+#showcase {
+  background: #ffffff url(bg.jpg) no-repeat center center/cover;
+  height: 100vh;
+  color: #fff;
+
+}
+
+.showcase-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height:93%;
+  padding: 1.5rem;
+  backdrop-filter: blur(2px);
+  background-color: rgba(0,0,0,0.1);
+}
+
+
+.bg-light {
+  background-color: #EAEAEA;
+}
+
+.image {
+    position:relative ;
+    width: 350px;
+    margin: auto;
+}
+
+
+
+
+.image__img {
+border-radius: 10px;
+  display: block;
+  width: 100%;
+
+}
+
+.image__overlay {
+    display: flex;
+    position:  absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.1);
+    color: #ffffff;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.25s;
+    border-radius: 10px;
+}
+
+.image__overlay--blur {
+    backdrop-filter: blur(5px);
+}
+
+.image__overlay > * {
+    transform: translateY(20px);
+    transition: transform 0.25s;
+}
+
+.image__overlay:hover {
+    opacity: 1;
+}
+
+.image__overlay:hover > * {
+    transform: translateY(0);
+}
+
+.image__title {
+    font-size: 1em;
+}
+a{
+  text-decoration: none;
+}
+
+
+
+
+.bg-dark {
+  background-color:#6a9790;
+}
+
+
+.py-1 { 
+  padding: 1.5rem 0;;
+  
+}
+
+/* Section: Navbar */
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem;
+  position:sticky;
+  top: 0;
+  z-index: 1;
+}
+
+
+
+#navbar ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+#navbar ul li a {
+  padding: 1rem;
+  color:#eee9e2;
+  font-size:larger;
+}
+
+#navbar ul li a:hover {
+  background-color:#82a7a2;
+  border-radius: 5px;
+}
+
+</style>
+</head>
+
+
+<body a link="white" vlink="white">
+ 
+      <!-- Navbar -->
+      <nav  id="navbar" class="bg-dark "dir="rtl"  >
+  
+        <ul >
+          <li><a href="home.php">الرئيسية</a></li>
+          <li><a href="home.php">من نحن </a></li>
+          <li><a href="healthpage.html">التغذيه</a></li>
+          <li><a href="exercises.html">الرياضه</a></li>
+          <li><a href="calories.html">احسب سعراتك</a></li>
+          <li><a href="home.php">التواصل معنا</a></li>
+          <li><a href="login.php">التسجيل</a></li>
+        </ul>
+    </nav>
+        <section id="showcase" >
+         <div class="showcase-content">
+          <pre class="pre1" >
+           صحتك وصحة قلبك <br> <br>في غذاءك الصحي...
+            </pre>
+
+         </div>
+</section>
+
+   <section class="bg-light py-1">
+     <div class="image">
+          <a href="snack.html">
+         <img class="image__img" src="https://i.pinimg.com/236x/1b/d6/ec/1bd6ec64a65ac020dac5adf09c93a225.jpg" alt="snack">
+         <div class="image__overlay image__overlay--blur">
+             <div class="image__title">سناك</div>
+             </a>
+         </div>
+     </div>
+<br><br>
+     <div class="image">
+        <a href="food.html">
+         <img class="image__img" src="https://i.pinimg.com/236x/63/95/83/6395835750cbf6566bdc56cbc9aacd12.jpg" alt="food">
+         <div class="image__overlay image__overlay--blur">
+             <div class="image__title" >وجبات رئيسية</div>
+            </a>
+         </div>
+     </div>
+<br><br>
+     <div class="image">
+          <a href="smothy.html">
+         <img class="image__img" src="https://i.pinimg.com/564x/91/cd/4e/91cd4e5b806b29d230b5f67f8bef2c75.jpg" alt="drinks">
+         <div class="image__overlay image__overlay--blur">
+             <div class="image__title">مشروبات صحية</div>
+           </a>
+         </div>
+     </div>
+
+
+
+
+   </section>
+
+      <footer  class=" py-1 bg-dark"> </footer> 
+   
+  </body>
+</html>

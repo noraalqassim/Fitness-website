@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Calorie Calculator</title>
+ 
+    <style>
+       @import url("http://www.fontstatic.com/f=sky-bold,sky");
+       @media print {
+  body {
+    background-color:#ffffff;
+  } }  
+
+      #loading, #results {
+        display:inline-block;
+      }
+      #loading {
+        width: 100%;
+      }             
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'sky';
+}
+ 
+
+html, body {
+    background-color: 	#d5dddd;
+  line-height: 1.6rem;
+    
+}
+ 
+a {
+  text-decoration: none;
+ 
+}
+ 
+ 
+.bg-dark {
+  background-color:#6a9790;
+}
+ 
+ 
+.py-1 {
+  padding: 1.5rem 0;;
+   
+}
+ 
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem;
+  position:sticky;
+  top: 0;
+  z-index: 1;
+}
+ 
+
+ 
+#navbar ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  line-height: 1.6rem;
+
+}
+ 
+#navbar ul li a {
+  padding: 1rem;
+  color:#eee9e2;
+  font-size:larger;
+}
+ 
+#navbar ul li a:hover {
+  background-color:#82a7a2;
+  border-radius: 5px;
+}
+ .col-sm .col-sm-2 .col-sm-6 {
+  position:relative;
+  width:100%;
+  padding-right:15px;
+  padding-left:15px} 
+
+ .container {
+   width:100%;
+   padding-right:15px;
+   padding-left:15px;
+   margin-right:auto;
+   margin-left:auto}
+   .btn-dark{
+       color:#fff;
+       background-color:#343a40;
+       border-color:#343a40}
+
+   .btn-dark:hover{color:#fff;
+    background-color:#23272b;
+    border-color:#1d2124}
+    
+   .btn-block{ padding-bottom: 0.5rem 1.25rem;
+  cursor: pointer;
+  border-radius: 5px;
+       display:block;width:100%}.btn-block+.btn-block{margin-top:.5rem}input[type=button]
+   .btn-block,input[type=reset].btn-block,input[type=submit].btn-block{width:50%; margin:auto; height: 2em;}
+   .pt-4,.py-4{padding-top:1.5rem!important}
+   .col-sm-6{-ms-flex:0 0 50%;flex:0 0 50%;max-width:50%}
+   .col-sm-2{-ms-flex:0 0 16.666667%;flex:0 0 16.666667%;max-width:16.666667%}
+   .custom-control-label{color:#000000}
+   .pt-0{padding-top:0!important}
+   .custom-control-inline{display:-ms-inline-flexbox;display:inline-flex;margin-right:1rem}
+   
+   fieldset {
+  background-color: #eeeeee;
+  width: 50em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  border: 20px groove (internal value);
+
+
+}
+
+.legend-1 {
+  color: rgb(0, 0, 0);
+  padding: 5px 10px;
+ font-size: large;
+ text-align: center;
+}
+
+input {
+  margin: 5px;
+}
+
+
+    </style>
+  </head>
+  <body class="bg-dark">
+
+        <!-- Navbar -->
+
+        <nav id="navbar" class="bg-dark"dir="rtl" >
+     
+            <ul >
+              <li><a href="home.php">الرئيسية</a></li>
+              <li><a href="home.php">من نحن </a></li>
+              <li><a href="healthpage.html">التغذيه</a></li>
+              <li><a href="exercises.html">الرياضه</a></li>
+              <li><a href="calories.html">احسب سعراتك</a></li>
+             <li><a href="home.php">التواصل معنا</a></li>
+       <li><a href="login.php">التسجيل</a></li>
+            </ul>
+        </nav>
+
+      
+
+
+    <div class="container" style="background-color: rgb(200, 224, 224);">
+      <div class="row">
+        <div width="100%">
+ 
+          
+          <div class="card" dir="rtl">
+           
+            <form id="calorie-form">
+ <fieldset>
+    <div class="row">
+        <legend class="legend-1" >Calorie Calculator</legend>
+    <div id="div">حاسبة السعرات الحرارية (BMR) هي عملية حسابية تقوم على حساب عدد السعرات الحرارية المستهلكة يوميا للشخص<br> (ذكر /أنثى) بناء على عدة عوامل مثل الطول, الوزن, العمر, النوع, ونوعية النشاط اليومي البدني.</div>
+</fieldset><br>
+              <fieldset >
+                <div class="row">
+                  <legend class="legend-1">حساب السعرات الحرارية</legend>
+                       
+                 <pre>الجنس:</pre>
+                  <div class="col-sm-6" id="form-radio">
+                    <div class=" custom-control-inline">
+                      <input type="radio" id="male" name="customRadioInline1"  checked="checked">
+                      <label class="custom-control-label" for="male">ذكر</label>
+                    </div>
+                    <div class="custom-control-inline">
+                      <input type="radio" id="female" name="customRadioInline1" >
+                      <label class="custom-control-label" for="female">انثى</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <label for="age" class="col-sm-2"> العمر:</label>
+                    <div class="col-sm-6">
+                     <input type="number" id="age" placeholder="العمر 15-80">
+                    </div>
+                  </div>
+     
+                  <div class=" row">
+                    <label for="weight" class="col-sm-2 ">  الوزن:</label>
+                    <div class="col-sm-6">
+                      <input type="number" id="weight" placeholder="kg">
+                    </div>
+                  </div>
+     
+                  <div class=" row">
+                    <label for="height" class="col-sm-2 ">الطول:</label>
+                    <div class="col-sm-6">
+                      <input type="number"  id="height" placeholder="cm">
+                    </div>
+                  </div>
+                   
+                  <div class=" row">
+
+                     <legend class=" col-sm-2 pt-0">النشاط:</legend>
+                     <select class="col-sm-6" id="list">
+                      <option selected value="1">خامل</option>
+                      <option value="2">قليل النشاط</option>
+                      <option value="3">معتدل النشاط</option>
+                      <option value="4">نشط جدا</option>
+                      <option value="5">نشط للغايه</option>
+                    </select>
+                  </div>
+     
+                  <div >
+                    <input type="submit" value="Calculate" class="btn btn-dark btn-block">
+                  </div>
+
+                </form>
+                <div id="loading">
+                  </div>
+                <div id="results" class="pt-4">
+                  <h5>اجمالى السعرات الحراريه</h5>
+    
+                 <div>
+                    <div >
+                      <input type="number" class="form-control" id="total-calories" disabled>
+                    </div>                   
+                </div>
+                </div>
+              </div>
+              </div>
+              </fieldset>
+   
+  
+              <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+              <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+              <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+              <script>
+    
+document.getElementById('calorie-form').addEventListener('submit', function(e){
+  document.getElementById('results').style.display = 'none';
+ 
+  document.getElementById('loading').style.display = 'block';
+ 
+  setTimeout(calculateCalories, 2000);
+ 
+  e.preventDefault();
+});
+ 
+function calculateCalories(e) {
+   
+  const age = document.getElementById('age');
+  const gender = document.querySelector('input[name="customRadioInline1"]:checked');
+  const weight = document.getElementById('weight');
+  const height = document.getElementById('height');
+  const activity = document.getElementById('list').value;
+  const totalCalories = document.getElementById('total-calories');
+   
+   
+  if (age.value === '' || weight.value === '' || height.value === '' || 80 < age.value || age.value < 15) {
+    errorMessage('الرجاء إدخال قيم صحيحة')
+  } else if(gender.id === 'male' && activity === "1") {
+    totalCalories.value = 1.2 * (66.5 + (13.75 * parseFloat(weight.value)) + (5.003 * parseFloat(height.value)) - (6.755 * parseFloat(age.value)));
+  } else if(gender.id === 'male' && activity === "2") {
+    totalCalories.value = 1.375 * (66.5 + (13.75 * parseFloat(weight.value)) + (5.003 * parseFloat(height.value)) - (6.755 * parseFloat(age.value)));
+  } else if (gender.id === 'male' && activity === "3") {
+    totalCalories.value = 1.55 * (66.5 + (13.75 * parseFloat(weight.value)) + (5.003 * parseFloat(height.value)) - (6.755 * parseFloat(age.value)));
+  } else if(gender.id === 'male' && activity === "4") {
+    totalCalories.value = 1.725 * (66.5 + (13.75 * parseFloat(weight.value)) + (5.003 * parseFloat(height.value)) - (6.755 * parseFloat(age.value)));
+  } else if(gender.id === 'male' && activity === "5") {
+    totalCalories.value = 1.9 * (66.5 + (13.75 * parseFloat(weight.value)) + (5.003 * parseFloat(height.value)) - (6.755 * parseFloat(age.value)))
+    ;
+  } else if(gender.id === 'female' && activity === "1") {
+    totalCalories.value = 1.2 * (655 + (9.563 * parseFloat(weight.value)) + (1.850 * parseFloat(height.value)) - (4.676 * parseFloat(age.value)));
+  } else if(gender.id === 'female' && activity === "2") {
+    totalCalories.value = 1.375 * (655 + (9.563 * parseFloat(weight.value)) + (1.850 * parseFloat(height.value)) - (4.676 * parseFloat(age.value)));
+
+} else if(gender.id === 'female' && activity === "3") {
+    totalCalories.value = 1.55 * (655 + (9.563 * parseFloat(weight.value)) + (1.850 * parseFloat(height.value)) - (4.676 * parseFloat(age.value)));
+  } else if(gender.id === 'female' && activity === "4") {
+    totalCalories.value = 1.725* (655 + (9.563 * parseFloat(weight.value)) + (1.850 * parseFloat(height.value)) - (4.676 * parseFloat(age.value)));
+  } else {
+    totalCalories.value = 1.9 * (655 + (9.563 * parseFloat(weight.value)) + (1.850 * parseFloat(height)) - (4.676 * parseFloat(age.value)));
+  }
+ 
+  document.getElementById('results').style.display = 'block';
+ 
+  document.getElementById('loading').style.display = 'none';
+}
+ 
+function errorMessage(error) {
+  document.getElementById('results').style.display = 'none';
+ 
+  document.getElementById('loading').style.display = 'none';
+  const errorDiv = document.createElement('div');
+  const card = document.querySelector('.card');
+  const heading = document.querySelector('.heading');
+  errorDiv.className = 'alert alert-danger';
+  errorDiv.appendChild(document.createTextNode(error));
+ 
+  card.insertBefore(errorDiv, heading);
+ 
+  setTimeout(clearError, 4000);
+}
+ 
+function clearError() {
+  document.querySelector('.alert').remove();
+}
+  
+</script>
+  </body>
+</html>
